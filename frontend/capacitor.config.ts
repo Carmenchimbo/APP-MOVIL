@@ -1,0 +1,51 @@
+import { CapacitorConfig } from '@capacitor/cli';
+
+const config: CapacitorConfig = {
+  appId: 'com.example.appkickoff',
+  appName: 'App Kick Off',
+  webDir: 'dist',
+  server: {
+    androidScheme: 'https',
+    // Descomenta para desarrollo local con hot reload
+    // url: 'http://10.0.2.2:3000', // Android emulator
+    // cleartext: true
+  },
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 2000,
+      launchAutoHide: true,
+      launchFadeOutDuration: 500,
+      backgroundColor: '#ffffff',
+      androidSplashResourceName: 'splash',
+      androidScaleType: 'CENTER_CROP',
+      showSpinner: false,
+      splashFullScreen: true,
+      splashImmersive: true,
+    },
+    StatusBar: {
+      style: 'DARK',
+      backgroundColor: '#ffffff',
+      overlaysWebView: true,
+    },
+    LiveUpdate: {
+      // URL de tu servidor de actualizaciones (configura según tu backend)
+      appId: 'com.example.appkickoff',
+      autoDeleteBundles: true,
+      enabled: true,
+      readyTimeout: 10000,
+      resetOnUpdate: true,
+    },
+  },
+  android: {
+    allowMixedContent: true,
+    captureInput: true,
+    webContentsDebuggingEnabled: true, // Cambiar a false en producción
+  },
+  ios: {
+    contentInset: 'always',
+    allowsLinkPreview: false,
+    scrollEnabled: true,
+  },
+};
+
+export default config;
